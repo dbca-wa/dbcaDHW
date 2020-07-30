@@ -209,7 +209,7 @@ create_vectors <- function(pathin, aoi){
 #' @importFrom lubridate ymd
 #' @importFrom tibble tibble
 #' @importFrom raster raster extract
-#' @importFrom readr write_csv
+#' @importFrom readr write_csv read_csv
 #' @importFrom stringr str_split str_extract
 #'
 #' @export
