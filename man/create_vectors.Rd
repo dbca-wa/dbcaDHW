@@ -4,7 +4,7 @@
 \alias{create_vectors}
 \title{Create extraction and cell vector shape files}
 \usage{
-create_vectors(pathin, shape)
+create_vectors(pathin, aoi)
 }
 \arguments{
 \item{pathin}{a character file path to the working directory (see details).}
