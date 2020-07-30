@@ -41,28 +41,27 @@
 #' For more details see \url{https://dbca-wa.github.io/dbcaDHW/index.html}
 #' {the dbcaDHW website}
 #'
-#' @importFrom here set_here here
 #' @importFrom sp CRS
 #' @importFrom raster raster crop projectRaster writeRaster
 #' @importFrom sf st_read st_transform
 #'
 #' @export
 nc_to_img <- function(pathin, vector = "WA"){
-  # define where we are
-  here::set_here(pathin, verbose = TRUE)
-
   # img data folder setup
-  imdir <- here::here("img_data")
+  imdir <- paste0(pathin, "/img_data")
   if(!file.exists(imdir)){dir.create(imdir)}
 
+  # raw data loc
+  ncdir <- paste0(pathin, "/nc_data")
+
   # grab a list of raw data nc files (as downloaded)
-  flist <- list.dirs(path = here("nc_data"), recursive = FALSE)
+  flist <- list.dirs(path = ncdir, recursive = FALSE)
 
   # read in vector to use - defaults to one for WA
   if(vector == "WA"){
     shp <- shpWA
   } else {
-    shp <- sf::st_read(dsn = here(), layer = vector)
+    shp <- sf::st_read(dsn = pathin, layer = vector)
   }
 
   alb <- suppressWarnings(sp::CRS(paste("+proj=aea +lat_1=-18 +lat_2=-36 +lat_0=0",
@@ -82,8 +81,6 @@ nc_to_img <- function(pathin, vector = "WA"){
     for(b in seq_along(ncfiles)){
       # read in raw nc data
       tmpin <- raster::raster(ncfiles[b], varname="CRW_SST")
-      # tmpin <- suppressWarnings(stars::read_ncdf(ncfiles[b], var = "CRW_SST"))
-      # tmpin4326 <- sf::st_set_crs(tmpin, 4326)
 
       # ensure cropping vector is same crs
       shpT <- sf::st_transform(shp, crs(tmpin))
@@ -144,16 +141,13 @@ nc_to_img <- function(pathin, vector = "WA"){
 #' For more details see \url{https://dbca-wa.github.io/dbcaDHW/index.html}
 #' {the dbcaDHW website}
 #'
-#' @importFrom here set_here here
 #' @importFrom stars read_stars
 #' @importFrom sf st_set_crs st_transform st_crop st_as_sf st_write
 #'
 #' @export
-create_vectors <- function(pathin, shape){
-  # define where we are
-  here::set_here(pathin, verbose = TRUE)
-
-  img_dat <- here::here("img_data")
+create_vectors <- function(pathin, aoi){
+  # img data loc
+  img_dat <- paste0(pathin, "/img_data")
 
   # grab one of the new nc-img files
   img <- stars::read_stars(list.files(img_dat, pattern = ".img$",
@@ -162,7 +156,7 @@ create_vectors <- function(pathin, shape){
   img3577 <- sf::st_set_crs(img, 3577)
 
   # study area vector
-  shp <- sf::st_read(dsn = here(), layer = aoi)
+  shp <- sf::st_read(dsn = pathin, layer = aoi)
 
   # ensure cropping vector is same crs
   shpT <- sf::st_transform(shp, st_crs(img3577))
@@ -173,12 +167,14 @@ create_vectors <- function(pathin, shape){
   # create spatial points and add id
   pts <- sf::st_as_sf(c_img, as_points = TRUE, merge = FALSE)
   pts$id <- paste0("s", sprintf("%04d", 1:dim(pts)[1]))
-  suppressWarnings(sf::st_write(pts, dsn = here::here("extraction_pts_3577.shp")))
+  suppressWarnings(sf::st_write(pts, dsn = paste0(pathin,
+                                                  "/extraction_pts_3577.shp")))
 
   # create cells
   cells <- sf::st_as_sf(c_img, as_points = FALSE, merge = FALSE)
   cells$id <- paste0("s", sprintf("%04d", 1:dim(cells)[1]))
-  suppressWarnings(sf::st_write(cells, dsn = here::herehere("cells_bnds_3577.shp")))
+  suppressWarnings(sf::st_write(cells, dsn = paste0(pathin,
+                                                    "/cells_bnds_3577.shp")))
 
 }
 
@@ -209,28 +205,28 @@ create_vectors <- function(pathin, shape){
 #' For more details see \url{https://dbca-wa.github.io/dbcaDHW/index.html}
 #' {the dbcaDHW website}
 #'
-#' @importFrom here set_here here
 #' @importFrom sf st_read
 #' @importFrom lubridate ymd
 #' @importFrom tibble tibble
 #' @importFrom raster raster extract
 #' @importFrom readr write_csv
+#' @importFrom stringr str_split str_extract
 #'
 #' @export
 extract_daily <- function(pathin){
-  # define where we are
-  here::set_here(pathin, verbose = TRUE)
+  # img data loc
+  img_dat <- paste0(pathin, "/img_data")
 
   # grab a list year folders
-  flist <- list.dirs(path = here::here("img_data"), recursive = FALSE)
+  flist <- list.dirs(path = img_dat, recursive = FALSE)
 
   # extraction shape file
-  shp <- sf::st_read(dsn = here::here(), layer = "extraction_pts_3577")
+  shp <- sf::st_read(dsn = pathin, layer = "extraction_pts_3577")
 
   # top loop for iterating year folders
   for(a in seq_along(flist)){
     img_list <- list.files(flist[a], pattern = ".img$", full.names = TRUE)
-    d1 <- sapply(str_split(str_extract(img_list,
+    d1 <- sapply(stringr::str_split(stringr::str_extract(img_list,
                                        "([0-9]+){8}.*$"), "[.]"), "[[", 1)
     dates <- lubridate::ymd(d1)
     results <- tibble::tibble()
@@ -251,10 +247,11 @@ extract_daily <- function(pathin){
   }
 
   # combine all results and export
-  all_results <- list.files(path = here("img_data"), pattern = "SST.csv",
+  all_results <- list.files(path = img_dat, pattern = "SST.csv",
                             recursive = TRUE, full.names = TRUE) %>%
-    map_df(~read_csv(.))
-  csvName <- paste(all_results[[1]][1], all_results[[1]][dim(all_results)[1]], sep = "_")
-  readr::write_csv(all_results, path = paste0("CRW3_1_extract_", csvName,
-                                              "_SST_data.csv"))
+    purrr::map_df(~read_csv(.))
+  csvName <- paste(all_results[[1]][1], all_results[[1]][dim(all_results)[1]],
+                   sep = "_")
+  readr::write_csv(all_results, path = paste0(pathin, "/CRW3_1_extract_",
+                                              csvName, "_SST_data.csv"))
 }
