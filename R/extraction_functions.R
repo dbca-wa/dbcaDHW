@@ -249,7 +249,7 @@ extract_daily <- function(pathin){
   # combine all results and export
   all_results <- list.files(path = img_dat, pattern = "SST.csv",
                             recursive = TRUE, full.names = TRUE) %>%
-    purrr::map_df(~read_csv(.))
+    purrr::map_df(~readr::read_csv(.))
   csvName <- paste(all_results[[1]][1], all_results[[1]][dim(all_results)[1]],
                    sep = "_")
   readr::write_csv(all_results, path = paste0(pathin, "/CRW3_1_extract_",
