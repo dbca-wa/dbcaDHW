@@ -1,0 +1,12 @@
+pandoc: 2.7.2
+pkgdown: 1.5.1
+pkgdown_sha: ~
+articles:
+  making_dhw: ../../../../../../../X:/DATA/SST/CRW/dbcaDHW/vignettes/making_dhw.html
+  making_metrics: ../../../../../../../X:/DATA/SST/CRW/dbcaDHW/vignettes/making_metrics.html
+  workflow: ../../../../../../../X:/DATA/SST/CRW/dbcaDHW/vignettes/workflow.html
+last_built: 2020-08-03T01:57Z
+urls:
+  reference: https://dbca-wa.github.io/dbcaDHW/reference
+  article: https://dbca-wa.github.io/dbcaDHW/articles
+

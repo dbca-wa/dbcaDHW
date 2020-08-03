@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://dbca-wa.github.io/dbcaDHW/index.html</loc>
+  </url>
+  <url>
+    <loc>https://dbca-wa.github.io/dbcaDHW/reference/create_vectors.html</loc>
+  </url>
+  <url>
+    <loc>https://dbca-wa.github.io/dbcaDHW/reference/extract_daily.html</loc>
+  </url>
+  <url>
+    <loc>https://dbca-wa.github.io/dbcaDHW/reference/nc_to_img.html</loc>
+  </url>
+  <url>
+    <loc>https://dbca-wa.github.io/dbcaDHW/articles/making_dhw.html</loc>
+  </url>
+  <url>
+    <loc>https://dbca-wa.github.io/dbcaDHW/articles/making_metrics.html</loc>
+  </url>
+  <url>
+    <loc>https://dbca-wa.github.io/dbcaDHW/articles/workflow.html</loc>
+  </url>
+</urlset>
