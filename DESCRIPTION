@@ -1,7 +1,7 @@
 Package: dbcaDHW
 Type: Package
 Title: Functions to aid in analysing Sea Surface Temperature from Coral Reef Watch
-Version: 0.1.0
+Version: 1.0.0
 Authors@R: person("Bart", "Huntley", email = "bart.huntley@dbca.wa.gov.au",
                   role = c("aut", "cre", "prg", "res"),
                   comment = c(ORCID = "0000-0002-9519-4105"))
