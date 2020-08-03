@@ -29,8 +29,7 @@ the geometry of the SST data.
 
 3. extract daily SST values and export them to csv file for further analysis.
 
-Lastly, the vignette **Making metrics** will show how to use the exported data to 
-create useful SST metrics.
+Lastly, the vignettes **Making metrics**  and **Degree heating weeks** will show how to use the exported data to create useful SST metrics.
 
 # Installation
 You can install the development version from [GitHub](https://github.com/dbca-wa) with:
