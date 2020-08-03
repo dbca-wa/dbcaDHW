@@ -1,0 +1,112 @@
+---
+title: "Degree heating weeks"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+
+![](plots/dbcaDHWlogo2011.png)
+
+# Introduction
+The aim of this vignette is to show an interpretation of NOAA's Coral Reef Watch 
+degree heating week metric (DHW), [see here for details](https://coralreefwatch.noaa.gov/product/5km/methodology.php#dhw).
+
+By following the vignette **Using dbcaDHW** there will be a csv of SST values 
+and a folder structure that this analysis will utilise. Please read that 
+vignette first if you haven't done so. 
+
+# Degree heating weeks
+The following will create 2 csv files as output. One, including *"DHW"* in the name, will contain a daily record of the the DHW for the defined **present** period. 
+The other csv with *"DHWM"* in the name, will contain the overall maximum DHW 
+metric achieved for each site for the defined **present** period.
+
+First up load up other required packages, read in the previously created data and set up a few useful objects.
+```{r, eval=FALSE}
+library(tidyverse)
+library(lubridate)
+library(tibbletime)
+
+## read in extracted daily values
+dataset <- read_csv("CRW3_1_extract_yourstartdate_yourfinishdate_SST_data.csv")
+
+## sites
+sites <- names(dataset)[-1]
+g_num <- length(sites) + 1
+```
+
+Next up the **past** period and a maximum monthly mean will be calculated. For 
+our purposes this metric (mmmt) will serve as the threshold temperature. Please 
+adjust the **past** period date to suit your needs/data.
+```{r, eval=FALSE}
+## create maximum monthly mean from "past period"
+mmtdata <- dataset %>%
+  tidyr::gather("site", "sst", 2:all_of(g_num)) %>%
+  dplyr::filter(dates < "2010-08-01") %>% #define past
+  dplyr::mutate(month = month(dates),
+                year = year(dates)) %>%
+  dplyr::group_by(site, year, month) %>%
+  dplyr::summarise(avg = mean(sst)) %>% #obtain mthly avgs
+  dplyr::group_by(site) %>%
+  dplyr::summarise(mmmt = max(avg)) #obtain max mthly avg
+```
+
+The DHW calculation is assisted by creating a function to do the work of a 
+rolling 12 week "sum". A **present** period also needs to be defined. Again 
+change this to suit your needs. Note, the code snippet below focuses on 
+temperatures that exceed the mmt by 1 degree or greater as per the Coral Reef 
+Watch example linked above. This may or may not suit your needs so adjust 
+accordingly.
+
+```{r, eval=FALSE}
+## function for rolling cusum of 12 weeks - 84 days)
+dhw_calc_12 <- tibbletime::rollify(sum, window = 84)
+
+## observation period, hotspot & dhw calc
+dhw <- dataset %>%
+  tidyr::gather("site", "sst", 2:all_of(g_num)) %>%
+  dplyr::filter(dates >= "2010-08-01" & dates <= "2011-07-31") %>% #define present
+  dplyr::mutate(month = month(dates)) %>%
+  dplyr::full_join(mmtdata, by = "site") %>%
+  dplyr::mutate(hspt = sst - mmmt,
+                hsptm = ifelse(hspt >= 1, hspt, 0),
+                dhw = dhw_calc_12(hsptm)*(1/7)) %>% #hotspot based on 1 degree
+  dplyr::select(-month, -hsptm)
+```
+
+Lastly create the summary **DHWM** data and write all to csv.
+```{r, eval=FALSE}
+dhwm <- dhw %>%
+  dplyr::group_by(site) %>%
+  dplyr::summarise(dhwm = max(dhw, na.rm = TRUE))
+  
+write_csv(dhw, "SB_CRW3_1_SST_DHW_present.csv")    
+write_csv(dhwm, "SB_CRW3_1_SST_DHWM_present.csv") 
+```
+
+To summarise. From the past period, monthly sst was calculated per site and then the maximum was chosen to represent the **maximum monthly mean temperature** or mmmt.
+
+This single value per site was then added to the present period data where it was taken away from the observed sst. This value becomes a **hotspot** value and used as a threshold temperature. Following work outlined on Coral Reef Watch (https://coralreefwatch.noaa.gov/satellite/methodology/methodology.php) any hotspot value greater than or equal to one was cumulatively summed within a moving 12 week window. As the Coral Reef Watch method was based on bi-weekly hotspot data rather than daily, the cummulative summed value was multiplied by 0.14 (1/7) to arrive at the degree heat weeks metric, **DHW**.
+
+As the **DHW** is calculated in a moving window a summary of this metric was considered as the maximum value calculated for each site for the present period, i.e. **DHWM**.
+
+Two out puts are generated.
+
+**SB_CRW3_1_SST_DHW_present.csv** which contains the following headers:
+
+* `dates` - Date
+* `site` - The unique site Id. There are 600 and if visualised as a grid covering Shark Bay, they start at the top left hand corner and run from left to right.
+* `sst` - Sea Surface Temperature as extracted from the Coral Reef Watch version 3.1 data.
+* `mmmt` - Maximum Monthly Mean Temperature.
+* `hspt` - Hotspot. This is `sst` - `mmmt` giving a positive value for values exceeding the `mmmt` threshold.
+* `dhw` - Degree Heating Weeks. An **NA** indicates not enough values for a 12 week calculation.
+
+**SB_CRW3_1_SST_DHWM_present.csv** which contains the following headers:
+
+* `site` - The unique site Id. There are 600 and if visualised as a grid covering Shark Bay, they start at the top left hand corner and run from left to right.
+* `dhwm` - Degree Heating Weeks maximum.
