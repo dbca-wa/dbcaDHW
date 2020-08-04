@@ -9,7 +9,7 @@ create_vectors(pathin, aoi)
 \arguments{
 \item{pathin}{a character file path to the working directory (see details).}
 
-\item{aoi}{character representation of the shape file name of the stuady area.
+\item{aoi}{character representation of the shape file name of the study area.
 No file extension.}
 }
 \value{

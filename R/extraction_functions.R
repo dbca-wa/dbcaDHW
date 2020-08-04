@@ -124,7 +124,7 @@ nc_to_img <- function(pathin, vector = "WA"){
 #'
 #' @param pathin a character file path to the working directory (see details).
 #'
-#' @param aoi character representation of the shape file name of the stuady area.
+#' @param aoi character representation of the shape file name of the study area.
 #'     No file extension.
 #'
 #' @return two vector files. A point shape file for use in extracting data and a
