@@ -89,11 +89,11 @@ write_csv(dhw, "SB_CRW3_1_SST_DHW_present.csv")
 write_csv(dhwm, "SB_CRW3_1_SST_DHWM_present.csv") 
 ```
 
-To summarise. From the past period, monthly sst was calculated per site and then the maximum was chosen to represent the **maximum monthly mean temperature** or mmmt.
+To summarise. From the **past** period, monthly sst was calculated per site and then the maximum was chosen to represent the **maximum monthly mean temperature** or mmmt.
 
-This single value per site was then added to the present period data where it was taken away from the observed sst. This value becomes a **hotspot** value and used as a threshold temperature. Following work outlined on Coral Reef Watch (https://coralreefwatch.noaa.gov/satellite/methodology/methodology.php) any hotspot value greater than or equal to one was cumulatively summed within a moving 12 week window. As the Coral Reef Watch method was based on bi-weekly hotspot data rather than daily, the cummulative summed value was multiplied by 0.14 (1/7) to arrive at the degree heat weeks metric, **DHW**.
+This single value per site was then added to the **present** period data where it was taken away from the observed sst. This value becomes a **hotspot** value and used as a threshold temperature. Following work outlined on [Coral Reef Watch](https://coralreefwatch.noaa.gov/satellite/methodology/methodology.php) any hotspot value greater than or equal to one was cumulatively summed within a moving 12 week window. As the Coral Reef Watch method was based on bi-weekly hotspot data rather than daily, the cummulative summed value was multiplied by 0.14 (1/7) to arrive at the degree heat weeks metric, **DHW**.
 
-As the **DHW** is calculated in a moving window a summary of this metric was considered as the maximum value calculated for each site for the present period, i.e. **DHWM**.
+As the **DHW** is calculated in a moving window a summary of this metric was considered as the maximum value calculated for each site for the **present** period, i.e. **DHWM**.
 
 Two out puts are generated.
 

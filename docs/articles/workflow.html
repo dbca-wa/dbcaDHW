@@ -87,14 +87,15 @@
 <div id="introduction" class="section level1">
 <h1 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h1>
-<p>The intention behind this package is to share how we went about creating some useful SST data that was used in the Global Change Biology journal paper, <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/gcb.15065">“Too hot to handle: Unprecedented seagrass death driven by marine heatwave in a World Heritage Area”</a>. The functions and workflow suited the particular data and modelling needs presented in the paper and as such probably won’t be directly transferable to other data sets. However it should provide some ideas and all code can be examined in the <a href="https://github.com/dbca-wa/dbcaDHW">package GitHub repo</a>.</p>
+<p>The intention behind this package is to share how we went about creating some useful SST data that was used in the Global Change Biology journal <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/gcb.15065">paper</a>, <em>“Too hot to handle: Unprecedented seagrass death driven by marine heatwave in a World Heritage Area”</em>.</p>
+<p>The functions and workflow suited the particular data and modelling needs presented in the paper and as such probably won’t be directly transferable to other data sets. However it should provide some ideas and all code can be examined in the <a href="https://github.com/dbca-wa/dbcaDHW/">package GitHub repo</a>.</p>
 <p>Functions used in this package will:</p>
 <ol style="list-style-type: decimal">
 <li><p>convert global SST data sets into more manageable img formatted cropped versions (defaults to the Western Australian region).</p></li>
 <li><p>based on a user provided area of interest, create vector shape files based on the geometry of the SST data.</p></li>
 <li><p>extract daily SST values and export them to csv file for further analysis.</p></li>
 </ol>
-<p>Lastly, the vignettes <strong>Making metrics</strong> and <strong>Degree heating weeks</strong> will show how to use the exported data to create useful SST metrics.</p>
+<p>Lastly, the articles <strong>Making metrics</strong> and <strong>Degree heating weeks</strong> will show how to use the exported data to create useful SST metrics.</p>
 </div>
 <div id="installation" class="section level1">
 <h1 class="hasAnchor">
@@ -107,12 +108,12 @@
 <div id="data" class="section level1">
 <h1 class="hasAnchor">
 <a href="#data" class="anchor"></a>Data</h1>
-<p>The functions were designed to be used on <a href="ftp://ftp.star.nesdis.noaa.gov/pub/sod/mecb/crw/data/5km/v3.1/nc/v0.1/daily/sst/">NOAA’s Coral Reef Watch SST data</a>. The data is daily sea surface temperatures (SST) in netcdf format (nc).</p>
+<p>The functions were designed to be used on <a href="https://coralreefwatch.noaa.gov/product/5km/">NOAA’s Coral Reef Watch SST data</a>. The data is daily sea surface temperatures (SST) in netcdf format (nc).</p>
 </div>
 <div id="folder-structure" class="section level1">
 <h1 class="hasAnchor">
 <a href="#folder-structure" class="anchor"></a>Folder Structure</h1>
-<p>A working directory or R Studio project needs to be determined. The downloaded data and any user supplied shape files should be stored here. Below, a processing file called <code>sst_processing/</code> is being used to demonstrate.</p>
+<p>A working directory or R Studio project needs to be determined. The downloaded data and any user supplied shape files should be stored here. Below, a processing folder called <code>sst_processing/</code> is being used to demonstrate.</p>
 <p>The downloaded data should be stored in a directory called <code>nc_data/</code> and within that the data is further organised by year directories. This example shows only the first 4 days of 1985 and 1986. Also present in the working directory is a region of interest (optional) and an area of interest shape file (required) and these will be discussed further.</p>
 <p>Any outputs created by the functions will end up in the working directory.</p>
 <p><img src="plots/start.PNG"></p>
@@ -127,14 +128,14 @@
 <div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="co"># user supplied region of interest</span>
 <span class="fu"><a href="../reference/nc_to_img.html">nc_to_img</a></span>(<span class="kw">pathin</span> <span class="kw">=</span> <span class="st">"X:/DATA/SST/CRW/sst_processing"</span>, <span class="kw">vector</span> <span class="kw">=</span> <span class="st">"region_of_interest_WGS84"</span>)
 
-<span class="co"># default WA region</span>
+<span class="co"># default WA region omit the vector parameter</span>
 <span class="fu"><a href="../reference/nc_to_img.html">nc_to_img</a></span>(<span class="kw">pathin</span> <span class="kw">=</span> <span class="st">"X:/DATA/SST/CRW/sst_processing"</span>)</pre></body></html></div>
 <p>User supplied shape files can have any coordinate reference system as the function will transform to EPSG 3577 (Australian Albers) prior to cropping. When supplying the layer name do not include the suffix. Output img files will be saved in the working directory to a folder called <code>img_data/</code> and will be organised by year. They will also have an EPSG of 3577.</p>
 </div>
 <div id="step-2" class="section level3">
 <h3 class="hasAnchor">
 <a href="#step-2" class="anchor"></a>Step 2</h3>
-<p>The function <code>create_vectors</code> will then create 2 new vector files. The user will need to supply an area of interest to further narrow the focus. The output vector files will be created from the geometry of the img raster data. An extraction vector will be created from the centroids of the SST pixels that fall within the area of interest. A cell boundaries vector (based on the pixel boundaries) will also be generated. Whilst not used in any processing here it can be useful to for visualisation.</p>
+<p>The function <code>create_vectors</code> will then create 2 new vector files. The user will need to supply an area of interest to further narrow the focus. The output vector files will be created from the geometry of the img raster data. An extraction vector will be created from the centroids of the SST pixels that fall within the area of interest. A cell boundaries vector (based on the pixel boundaries) will also be generated. Whilst not used in any processing here it can be useful for visualisation.</p>
 <p>Both output vector files have an EPSG of 3577 and are also attributed with a common 4 digit site number. Again, the coordinate reference system of the input vector, the area of interest shape file, doesn’t matter.</p>
 <div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="co"># user supplied area of interest</span>
 <span class="fu"><a href="../reference/create_vectors.html">create_vectors</a></span>(<span class="kw">pathin</span> <span class="kw">=</span> <span class="st">"X:/DATA/SST/CRW/sst_processing"</span>, <span class="kw">aoi</span> <span class="kw">=</span> <span class="st">"area_of_interest_WGS84"</span>)</pre></body></html></div>
@@ -147,7 +148,7 @@
 <span class="fu"><a href="../reference/extract_daily.html">extract_daily</a></span>(<span class="kw">pathin</span> <span class="kw">=</span> <span class="st">"X:/DATA/SST/CRW/sst_processing"</span>)</pre></body></html></div>
 <p>All SST values are then compiled and output to csv file.</p>
 <p><img src="plots/sst.PNG"></p>
-<p>The working directory should now look the below. Note there is now a directory tree with img data as well as two new vectors and the csv of SST results.</p>
+<p>The working directory should now look like the below. Note there is now a directory tree with img data as well as two new vectors and the csv of SST results.</p>
 <p><img src="plots/fin.PNG"></p>
 </div>
 </div>

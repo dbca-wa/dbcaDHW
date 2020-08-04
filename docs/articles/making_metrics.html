@@ -106,7 +106,7 @@
 <span class="co">## sites</span>
 <span class="no">sites</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/raster/man/names.html">names</a></span>(<span class="no">dataset</span>)[-<span class="fl">1</span>]
 <span class="no">g_num</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span>(<span class="no">sites</span>) + <span class="fl">1</span></pre></body></html></div>
-<p>Next up transform into a long format, create some new variables and remove leap days. This analysis will be based on 365 days in a year so we don’t need the complexity of including the 29th of February when it rolls around. Also set up a data frame to house all the results prior to writing rasters</p>
+<p>Next up transform into a long format, create some new variables and remove leap days. This analysis will be based on 365 days in a year so we don’t need the complexity of including the 29th of February when it rolls around. Also set up a data frame to house all the results prior to writing rasters.</p>
 <div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="co">## wide to long and remove leap days</span>
 <span class="no">ndata</span> <span class="kw">&lt;-</span> <span class="no">dataset</span> <span class="kw">%&gt;%</span>
   <span class="kw pkg">tidyr</span><span class="kw ns">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/gather.html">gather</a></span>(<span class="st">"site"</span>, <span class="st">"temp"</span>, <span class="fl">2</span>:<span class="fu">all_of</span>(<span class="no">g_num</span>)) <span class="kw">%&gt;%</span>
@@ -115,7 +115,7 @@
                 <span class="kw">day</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span>(<span class="no">dates</span>, <span class="fl">9</span>, <span class="fl">10</span>)) <span class="kw">%&gt;%</span>
   <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">month</span> <span class="kw">!=</span> <span class="st">"02"</span> <span class="kw">|</span> <span class="no">day</span> <span class="kw">!=</span> <span class="st">"29"</span>)
 
-<span class="co">## set up output dataframe - CHANGE WITH EDITS TO OUTPUT VARIABLES</span>
+<span class="co">## set up output data frame</span>
 <span class="no">outdf</span> <span class="kw">&lt;-</span> <span class="kw pkg">tibble</span><span class="kw ns">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span>(<span class="kw">Id</span> <span class="kw">=</span> <span class="no">sites</span>,
                     <span class="kw">hot_mean</span> <span class="kw">=</span> <span class="fl">0</span>,
                     <span class="kw">num_over</span> <span class="kw">=</span> <span class="fl">0</span>,
@@ -129,10 +129,10 @@
 <p>In the <strong>past</strong> data set, also create an average temperature (e.g. average temperature for all 1st of Januarys etc). A number of metrics are then created and stored in the output data frame:</p>
 <ul>
 <li>hottest mean - <strong>past</strong> period.</li>
-<li>number over - number of days in total over the hottest mean temperature.</li>
-<li>max temperature over - degrees difference between maximum temperature and hottest mean.</li>
+<li>number over - total number of days in <strong>present</strong> period over the hottest mean temperature.</li>
+<li>max temperature over - degrees difference between maximum temperature in <strong>present</strong> period and hottest mean.</li>
 <li>streaks over - number of times the <strong>present</strong> period temperature exceeded the hottest mean for at least 5 consecutive days. If 5 days is not appropriate , change in the code below.</li>
-<li>longest streak - length in days of the longest streak of temperatures over the hottest mean for at least 5 consecutive days. If 5 days is not appropriate , change in the code below.</li>
+<li>longest streak - length in days of the longest streak of temperatures in <strong>present</strong> period over the hottest mean for at least 5 consecutive days. If 5 days is not appropriate , change in the code below.</li>
 <li>max temperature - the hottest temperature in the <strong>present</strong> period.</li>
 </ul>
 <div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="kw">for</span>(<span class="no">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_along</a></span>(<span class="no">sites</span>)){

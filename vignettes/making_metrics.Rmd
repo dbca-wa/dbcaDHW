@@ -36,7 +36,7 @@ sites <- names(dataset)[-1]
 g_num <- length(sites) + 1
 ```
 
-Next up transform into a long format, create some new variables and remove leap days. This analysis will be based on 365 days in a year so we don't need the complexity of including the 29th of February when it rolls around. Also set up a data frame to house all the results prior to writing rasters
+Next up transform into a long format, create some new variables and remove leap days. This analysis will be based on 365 days in a year so we don't need the complexity of including the 29th of February when it rolls around. Also set up a data frame to house all the results prior to writing rasters.
 ```{r, eval=FALSE}
 ## wide to long and remove leap days
 ndata <- dataset %>%
@@ -46,7 +46,7 @@ ndata <- dataset %>%
                 day = substr(dates, 9, 10)) %>%
   dplyr::filter(month != "02" | day != "29")
 
-## set up output dataframe - CHANGE WITH EDITS TO OUTPUT VARIABLES
+## set up output data frame
 outdf <- tibble::tibble(Id = sites, 
                     hot_mean = 0,
                     num_over = 0, 
@@ -64,10 +64,10 @@ There is a neat gotcha below. Pay attention to the creation of the **nday** vari
 In the **past** data set, also create an average temperature (e.g. average temperature for all 1st of Januarys etc). A number of metrics are then created and stored in the output data frame:
 
 * hottest mean - **past** period.
-* number over - number of days in total over the hottest mean temperature.
-* max temperature over - degrees difference between maximum temperature and hottest mean.
+* number over - total number of days in **present** period over the hottest mean temperature.
+* max temperature over - degrees difference between maximum temperature in **present** period and hottest mean.
 * streaks over - number of times the **present** period temperature exceeded the hottest mean for at least 5 consecutive days. If 5 days is not appropriate , change in the code below.
-* longest streak - length in days of the longest streak of temperatures over the hottest mean for at least 5 consecutive days. If 5 days is not appropriate , change in the code below.
+* longest streak - length in days of the longest streak of temperatures in **present** period over the hottest mean for at least 5 consecutive days. If 5 days is not appropriate , change in the code below.
 *  max temperature - the hottest temperature in the **present** period.
 
 ```{r, eval=FALSE}
