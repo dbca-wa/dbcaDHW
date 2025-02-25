@@ -6,19 +6,20 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Degree heating weeks • dbcaDHW</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="Degree heating weeks">
-<meta property="og:description" content="dbcaDHW">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,18 +32,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dbcaDHW</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
@@ -55,9 +50,9 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/dbca-wa/dbcaDHW/">
-    <span class="fab fa fab fa-github fa-lg"></span>
-     
+  <a href="https://github.com/dbca-wa/dbcaDHW/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
+
   </a>
 </li>
       </ul>
@@ -68,98 +63,144 @@
 </div>
 <!--/.navbar -->
 
-      
 
-      </header><script src="making_dhw_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Degree heating weeks</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/dbca-wa/dbcaDHW/blob/master/vignettes/making_dhw.Rmd"><code>vignettes/making_dhw.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/dbca-wa/dbcaDHW/blob/HEAD/vignettes/making_dhw.Rmd" class="external-link"><code>vignettes/making_dhw.Rmd</code></a></small>
       <div class="hidden name"><code>making_dhw.Rmd</code></div>
 
     </div>
 
     
     
-<p><img src="plots/dbcaDHWlogo2011.png"></p>
-<div id="introduction" class="section level1">
-<h1 class="hasAnchor">
-<a href="#introduction" class="anchor"></a>Introduction</h1>
-<p>The aim of this vignette is to show an interpretation of NOAA’s Coral Reef Watch degree heating week metric (DHW), <a href="https://coralreefwatch.noaa.gov/product/5km/methodology.php#dhw">see here for details</a>.</p>
-<p>By following the vignette <strong>Using dbcaDHW</strong> there will be a csv of SST values and a folder structure that this analysis will utilise. Please read that vignette first if you haven’t done so.</p>
+<p><img src="plots%2FdbcaDHWlogo2011.png"></p>
+<div class="section level2">
+<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
+<p>The aim of this vignette is to show an interpretation of NOAA’s Coral
+Reef Watch degree heating week metric (DHW), <a href="https://coralreefwatch.noaa.gov/product/5km/methodology.php#dhw" class="external-link">see
+here for details</a>.</p>
+<p>By following the vignette <strong>Using dbcaDHW</strong> there will
+be a csv of SST values and a folder structure that this analysis will
+utilise. Please read that vignette first if you haven’t done so.</p>
 </div>
-<div id="degree-heating-weeks" class="section level1">
-<h1 class="hasAnchor">
-<a href="#degree-heating-weeks" class="anchor"></a>Degree heating weeks</h1>
-<p>The following will create 2 csv files as output. One, including <em>“DHW”</em> in the name, will contain a daily record of the the DHW for the defined <strong>present</strong> period. The other csv with <em>“DHWM”</em> in the name, will contain the overall maximum DHW metric achieved for each site for the defined <strong>present</strong> period.</p>
-<p>First up load up other required packages, read in the previously created data and set up a few useful objects.</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tidyverse</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">lubridate</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tibbletime</span>)
-
-<span class="co">## read in extracted daily values</span>
-<span class="no">dataset</span> <span class="kw">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"CRW3_1_extract_yourstartdate_yourfinishdate_SST_data.csv"</span>)
-
-<span class="co">## sites</span>
-<span class="no">sites</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">dataset</span>)[-<span class="fl">1</span>]
-<span class="no">g_num</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span>(<span class="no">sites</span>) + <span class="fl">1</span></pre></body></html></div>
-<p>Next up the <strong>past</strong> period and a maximum monthly mean will be calculated. For our purposes this metric (mmmt) will serve as the threshold temperature. Please adjust the <strong>past</strong> period date to suit your needs/data.</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="co">## create maximum monthly mean from "past period"</span>
-<span class="no">mmtdata</span> <span class="kw">&lt;-</span> <span class="no">dataset</span> <span class="kw">%&gt;%</span>
-  <span class="kw pkg">tidyr</span><span class="kw ns">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/gather.html">gather</a></span>(<span class="st">"site"</span>, <span class="st">"sst"</span>, <span class="fl">2</span>:<span class="fu">all_of</span>(<span class="no">g_num</span>)) <span class="kw">%&gt;%</span>
-  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">dates</span> <span class="kw">&lt;</span> <span class="st">"2010-08-01"</span>) <span class="kw">%&gt;%</span> <span class="co">#define past</span>
-  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="kw">month</span> <span class="kw">=</span> <span class="fu"><a href="http://lubridate.tidyverse.org/reference/month.html">month</a></span>(<span class="no">dates</span>),
-                <span class="kw">year</span> <span class="kw">=</span> <span class="fu"><a href="http://lubridate.tidyverse.org/reference/year.html">year</a></span>(<span class="no">dates</span>)) <span class="kw">%&gt;%</span>
-  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="no">site</span>, <span class="no">year</span>, <span class="no">month</span>) <span class="kw">%&gt;%</span>
-  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span>(<span class="kw">avg</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(<span class="no">sst</span>)) <span class="kw">%&gt;%</span> <span class="co">#obtain mthly avgs</span>
-  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="no">site</span>) <span class="kw">%&gt;%</span>
-  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span>(<span class="kw">mmmt</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span>(<span class="no">avg</span>)) <span class="co">#obtain max mthly avg</span></pre></body></html></div>
-<p>The DHW calculation is assisted by creating a function to do the work of a rolling 12 week “sum”. A <strong>present</strong> period also needs to be defined. Again change this to suit your needs. Note, the code snippet below focuses on temperatures that exceed the mmt by 1 degree or greater as per the Coral Reef Watch example linked above. This may or may not suit your needs so adjust accordingly.</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="co">## function for rolling cusum of 12 weeks - 84 days)</span>
-<span class="no">dhw_calc_12</span> <span class="kw">&lt;-</span> <span class="kw pkg">tibbletime</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/tibbletime/man/rollify.html">rollify</a></span>(<span class="no">sum</span>, <span class="kw">window</span> <span class="kw">=</span> <span class="fl">84</span>)
-
-<span class="co">## observation period, hotspot &amp; dhw calc</span>
-<span class="no">dhw</span> <span class="kw">&lt;-</span> <span class="no">dataset</span> <span class="kw">%&gt;%</span>
-  <span class="kw pkg">tidyr</span><span class="kw ns">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/gather.html">gather</a></span>(<span class="st">"site"</span>, <span class="st">"sst"</span>, <span class="fl">2</span>:<span class="fu">all_of</span>(<span class="no">g_num</span>)) <span class="kw">%&gt;%</span>
-  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">dates</span> <span class="kw">&gt;=</span> <span class="st">"2010-08-01"</span> <span class="kw">&amp;</span> <span class="no">dates</span> <span class="kw">&lt;=</span> <span class="st">"2011-07-31"</span>) <span class="kw">%&gt;%</span> <span class="co">#define present</span>
-  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="kw">month</span> <span class="kw">=</span> <span class="fu"><a href="http://lubridate.tidyverse.org/reference/month.html">month</a></span>(<span class="no">dates</span>)) <span class="kw">%&gt;%</span>
-  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span>(<span class="no">mmtdata</span>, <span class="kw">by</span> <span class="kw">=</span> <span class="st">"site"</span>) <span class="kw">%&gt;%</span>
-  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="kw">hspt</span> <span class="kw">=</span> <span class="no">sst</span> - <span class="no">mmmt</span>,
-                <span class="kw">hsptm</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span>(<span class="no">hspt</span> <span class="kw">&gt;=</span> <span class="fl">1</span>, <span class="no">hspt</span>, <span class="fl">0</span>),
-                <span class="kw">dhw</span> <span class="kw">=</span> <span class="fu">dhw_calc_12</span>(<span class="no">hsptm</span>)*(<span class="fl">1</span>/<span class="fl">7</span>)) <span class="kw">%&gt;%</span> <span class="co">#hotspot based on 1 degree</span>
-  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(-<span class="no">month</span>, -<span class="no">hsptm</span>)</pre></body></html></div>
-<p>Lastly create the summary <strong>DHWM</strong> data and write all to csv.</p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">dhwm</span> <span class="kw">&lt;-</span> <span class="no">dhw</span> <span class="kw">%&gt;%</span>
-  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="no">site</span>) <span class="kw">%&gt;%</span>
-  <span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span>(<span class="kw">dhwm</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span>(<span class="no">dhw</span>, <span class="kw">na.rm</span> <span class="kw">=</span> <span class="fl">TRUE</span>))
-
-<span class="fu">write_csv</span>(<span class="no">dhw</span>, <span class="st">"SB_CRW3_1_SST_DHW_present.csv"</span>)
-<span class="fu">write_csv</span>(<span class="no">dhwm</span>, <span class="st">"SB_CRW3_1_SST_DHWM_present.csv"</span>)</pre></body></html></div>
-<p>To summarise. From the <strong>past</strong> period, monthly sst was calculated per site and then the maximum was chosen to represent the <strong>maximum monthly mean temperature</strong> or mmmt.</p>
-<p>This single value per site was then added to the <strong>present</strong> period data where it was taken away from the observed sst. This value becomes a <strong>hotspot</strong> value and used as a threshold temperature. Following work outlined on <a href="https://coralreefwatch.noaa.gov/satellite/methodology/methodology.php">Coral Reef Watch</a> any hotspot value greater than or equal to one was cumulatively summed within a moving 12 week window. As the Coral Reef Watch method was based on bi-weekly hotspot data rather than daily, the cummulative summed value was multiplied by 0.14 (1/7) to arrive at the degree heat weeks metric, <strong>DHW</strong>.</p>
-<p>As the <strong>DHW</strong> is calculated in a moving window a summary of this metric was considered as the maximum value calculated for each site for the <strong>present</strong> period, i.e. <strong>DHWM</strong>.</p>
+<div class="section level2">
+<h2 id="degree-heating-weeks">Degree heating weeks<a class="anchor" aria-label="anchor" href="#degree-heating-weeks"></a>
+</h2>
+<p>The following will create 2 csv files as output. One, including
+<em>“DHW”</em> in the name, will contain a daily record of the the DHW
+for the defined <strong>present</strong> period. The other csv with
+<em>“DHWM”</em> in the name, will contain the overall maximum DHW metric
+achieved for each site for the defined <strong>present</strong>
+period.</p>
+<p>First up load up other required packages, read in the previously
+created data and set up a few useful objects.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://lubridate.tidyverse.org" class="external-link">lubridate</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/business-science/tibbletime" class="external-link">tibbletime</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## read in extracted daily values</span></span>
+<span><span class="va">dataset</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span><span class="st">"CRW3_1_extract_yourstartdate_yourfinishdate_SST_data.csv"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## sites</span></span>
+<span><span class="va">sites</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">dataset</span><span class="op">)</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span></span>
+<span><span class="va">g_num</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">sites</span><span class="op">)</span> <span class="op">+</span> <span class="fl">1</span></span></code></pre></div>
+<p>Next up the <strong>past</strong> period and a maximum monthly mean
+will be calculated. For our purposes this metric (mmmt) will serve as
+the threshold temperature. Please adjust the <strong>past</strong>
+period date to suit your needs/data.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## create maximum monthly mean from "past period"</span></span>
+<span><span class="va">mmtdata</span> <span class="op">&lt;-</span> <span class="va">dataset</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/gather.html" class="external-link">gather</a></span><span class="op">(</span><span class="st">"site"</span>, <span class="st">"sst"</span>, <span class="fl">2</span><span class="op">:</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/all_of.html" class="external-link">all_of</a></span><span class="op">(</span><span class="va">g_num</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">dates</span> <span class="op">&lt;</span> <span class="st">"2010-08-01"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="co">#define past</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>month <span class="op">=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/month.html" class="external-link">month</a></span><span class="op">(</span><span class="va">dates</span><span class="op">)</span>,</span>
+<span>                year <span class="op">=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html" class="external-link">year</a></span><span class="op">(</span><span class="va">dates</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">site</span>, <span class="va">year</span>, <span class="va">month</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>avg <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">sst</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="co">#obtain mthly avgs</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">site</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>mmmt <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">avg</span><span class="op">)</span><span class="op">)</span> <span class="co">#obtain max mthly avg</span></span></code></pre></div>
+<p>The DHW calculation is assisted by creating a function to do the work
+of a rolling 12 week “sum”. A <strong>present</strong> period also needs
+to be defined. Again change this to suit your needs. Note, the code
+snippet below focuses on temperatures that exceed the mmt by 1 degree or
+greater as per the Coral Reef Watch example linked above. This may or
+may not suit your needs so adjust accordingly.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## function for rolling cusum of 12 weeks - 84 days)</span></span>
+<span><span class="va">dhw_calc_12</span> <span class="op">&lt;-</span> <span class="fu">tibbletime</span><span class="fu">::</span><span class="fu">rollify</span><span class="op">(</span><span class="va">sum</span>, window <span class="op">=</span> <span class="fl">84</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## observation period, hotspot &amp; dhw calc</span></span>
+<span><span class="va">dhw</span> <span class="op">&lt;-</span> <span class="va">dataset</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/gather.html" class="external-link">gather</a></span><span class="op">(</span><span class="st">"site"</span>, <span class="st">"sst"</span>, <span class="fl">2</span><span class="op">:</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/all_of.html" class="external-link">all_of</a></span><span class="op">(</span><span class="va">g_num</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">dates</span> <span class="op">&gt;=</span> <span class="st">"2010-08-01"</span> <span class="op">&amp;</span> <span class="va">dates</span> <span class="op">&lt;=</span> <span class="st">"2011-07-31"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="co">#define present</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>month <span class="op">=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/month.html" class="external-link">month</a></span><span class="op">(</span><span class="va">dates</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">full_join</a></span><span class="op">(</span><span class="va">mmtdata</span>, by <span class="op">=</span> <span class="st">"site"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>hspt <span class="op">=</span> <span class="va">sst</span> <span class="op">-</span> <span class="va">mmmt</span>,</span>
+<span>                hsptm <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">hspt</span> <span class="op">&gt;=</span> <span class="fl">1</span>, <span class="va">hspt</span>, <span class="fl">0</span><span class="op">)</span>,</span>
+<span>                dhw <span class="op">=</span> <span class="fu">dhw_calc_12</span><span class="op">(</span><span class="va">hsptm</span><span class="op">)</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">7</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="co">#hotspot based on 1 degree</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">month</span>, <span class="op">-</span><span class="va">hsptm</span><span class="op">)</span></span></code></pre></div>
+<p>Lastly create the summary <strong>DHWM</strong> data and write all to
+csv.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dhwm</span> <span class="op">&lt;-</span> <span class="va">dhw</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">site</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>dhwm <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">dhw</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
+<span>  </span>
+<span><span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html" class="external-link">write_csv</a></span><span class="op">(</span><span class="va">dhw</span>, <span class="st">"SB_CRW3_1_SST_DHW_present.csv"</span><span class="op">)</span>    </span>
+<span><span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html" class="external-link">write_csv</a></span><span class="op">(</span><span class="va">dhwm</span>, <span class="st">"SB_CRW3_1_SST_DHWM_present.csv"</span><span class="op">)</span> </span></code></pre></div>
+<p>To summarise. From the <strong>past</strong> period, monthly sst was
+calculated per site and then the maximum was chosen to represent the
+<strong>maximum monthly mean temperature</strong> or mmmt.</p>
+<p>This single value per site was then added to the
+<strong>present</strong> period data where it was taken away from the
+observed sst. This value becomes a <strong>hotspot</strong> value and
+used as a threshold temperature. Following work outlined on <a href="https://coralreefwatch.noaa.gov/satellite/methodology/methodology.php" class="external-link">Coral
+Reef Watch</a> any hotspot value greater than or equal to one was
+cumulatively summed within a moving 12 week window. As the Coral Reef
+Watch method was based on bi-weekly hotspot data rather than daily, the
+cummulative summed value was multiplied by 0.14 (1/7) to arrive at the
+degree heat weeks metric, <strong>DHW</strong>.</p>
+<p>As the <strong>DHW</strong> is calculated in a moving window a
+summary of this metric was considered as the maximum value calculated
+for each site for the <strong>present</strong> period,
+i.e. <strong>DHWM</strong>.</p>
 <p>Two out puts are generated.</p>
-<p><strong>SB_CRW3_1_SST_DHW_present.csv</strong> which contains the following headers:</p>
+<p><strong>SB_CRW3_1_SST_DHW_present.csv</strong> which contains the
+following headers:</p>
 <ul>
 <li>
 <code>dates</code> - Date</li>
 <li>
-<code>site</code> - The unique site Id. There are 600 and if visualised as a grid covering Shark Bay, they start at the top left hand corner and run from left to right.</li>
+<code>site</code> - The unique site Id. There are 600 and if
+visualised as a grid covering Shark Bay, they start at the top left hand
+corner and run from left to right.</li>
 <li>
-<code>sst</code> - Sea Surface Temperature as extracted from the Coral Reef Watch version 3.1 data.</li>
+<code>sst</code> - Sea Surface Temperature as extracted from the
+Coral Reef Watch version 3.1 data.</li>
 <li>
 <code>mmmt</code> - Maximum Monthly Mean Temperature.</li>
 <li>
-<code>hspt</code> - Hotspot. This is <code>sst</code> - <code>mmmt</code> giving a positive value for values exceeding the <code>mmmt</code> threshold.</li>
+<code>hspt</code> - Hotspot. This is <code>sst</code> -
+<code>mmmt</code> giving a positive value for values exceeding the
+<code>mmmt</code> threshold.</li>
 <li>
-<code>dhw</code> - Degree Heating Weeks. An <strong>NA</strong> indicates not enough values for a 12 week calculation.</li>
+<code>dhw</code> - Degree Heating Weeks. An <strong>NA</strong>
+indicates not enough values for a 12 week calculation.</li>
 </ul>
-<p><strong>SB_CRW3_1_SST_DHWM_present.csv</strong> which contains the following headers:</p>
+<p><strong>SB_CRW3_1_SST_DHWM_present.csv</strong> which contains the
+following headers:</p>
 <ul>
 <li>
-<code>site</code> - The unique site Id. There are 600 and if visualised as a grid covering Shark Bay, they start at the top left hand corner and run from left to right.</li>
+<code>site</code> - The unique site Id. There are 600 and if
+visualised as a grid covering Shark Bay, they start at the top left hand
+corner and run from left to right.</li>
 <li>
 <code>dhwm</code> - Degree Heating Weeks maximum.</li>
 </ul>
@@ -168,26 +209,28 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
-    </nav>
-</div>
+      </div>
 
 </div>
 
 
 
       <footer><div class="copyright">
-  <p>Developed by Bart Huntley.</p>
+  <p></p>
+<p>Developed by Bart Huntley.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
       </footer>
 </div>
 
-  
+
+
+
 
 
   </body>
